@@ -1,0 +1,101 @@
+﻿
+.stoa
+{
+  width: 890px;
+  margin: 0px auto;
+  margin-bottom: 5px;
+  margin-top: 19px;
+  direction:ltr;
+}
+div.stoa-main
+{
+  border: solid 1px #CECECE;
+  height: 463px;
+  width: 694px;
+  float: left;
+  
+}
+
+div.stoa-navbar
+{
+  vertical-align: top;
+  margin: 0 55px 0 7px;
+  width: 128px;
+  float: left;
+}
+
+img.stoa-navbar-thumbnail-image
+{
+  cursor: pointer;
+  cursor: hand;
+  margin: 2px;
+  width:60px;
+  
+}
+img.stoa-navbar-thumbnail-image-selected
+{
+  border: solid 2px gray;
+  margin: 0px;
+}
+li.stoa-navbar-thumbnail-container
+{
+  padding: 0px;
+  display: inline;
+  height: 43px;
+}
+div.stoa-navbar-controllers
+{
+  width: 79px;
+  padding: 11px 0 0 1px;
+  margin: 0 auto;
+  direction:rtl;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+a.stoa-navbar-scroller-up, a.stoa-navbar-scroller-down
+{
+  display: block;
+  cursor: hand;
+  cursor: pointer;
+  margin: 0px auto;
+  height: 17px;
+  width: 15px;
+}
+a.stoa-navbar-controllers-left, a.stoa-navbar-controllers-right 
+{
+  display: inline-block;
+  cursor: hand;
+  cursor: pointer;
+  text-align: center;
+}
+a.stoa-navbar-controllers-right
+{
+  margin-right: 16px;
+}
+div.stoa-navbar-thumbnails-container
+{
+  height: 388px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+img.stoa-main-image
+{
+  cursor: pointer;
+  cursor: hand;
+  margin: 2px;
+  display: block;
+}
+ul, li
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  zoom: 1;
+}
+
+
+
+

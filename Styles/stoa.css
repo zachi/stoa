@@ -1,0 +1,31 @@
+﻿body
+{
+  color: #666666;
+  font-family: Verdana,Lucida,sans-serif;
+  font-size: 0.8em;
+  width:780px;
+  margin:0 auto;
+}
+h1,h3
+{
+font-family: 'Philosopher', arial, serif;
+}
+h1
+{
+  color:#000000;
+  
+}
+span.highlight-title
+{
+display:block;
+ margin-bottom:5px;
+}
+/*override highlight styles*/
+div.highlight pre.code ol li.even, div.highlight pre.code ul li.even, div.highlight pre.code ol, div.highlight pre.code ol li, div.highlight pre.code ul li
+{
+  background-color: #D6D2D3;
+}
+div.highlight
+{
+  width: 760px;
+}
