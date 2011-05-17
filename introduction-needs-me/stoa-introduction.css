@@ -29,3 +29,11 @@ div.highlight
 {
   width: 760px;
 }
+a
+{
+	text-decoration:none;
+}
+a:hover
+{
+	text-decoration:underline;
+}
