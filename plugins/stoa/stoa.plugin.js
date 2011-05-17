@@ -2,7 +2,7 @@
 
   $.widget("ui.stoa", {
 
-    options: { // default options
+  options: { // default options
       numberOfThumbnails: 40,
       thumbnailsFolderName: 'none',
       direction: 'ltr',
@@ -21,7 +21,7 @@
       self.initDirectionDefaults();
       self.initDOMStracture();
       self.initThumbnails();
-      self.thumbnailsOpacityHoverEffect();
+      self.initThumbnailsOpacityHoverEffect();
       self.initThumbnailsWheelScroll();
       self.initNavigationControllers();
     },
@@ -39,7 +39,9 @@
     initThumbnailsWheelScroll: function () {
       var self = this;
       $('#stoa-navbar-thumbnails-container').bind('mousewheel', function (event, delta) {
-        var scrollDelta = self.normalizeDelta(delta)
+        
+		var scrollDelta = self.normalizeDelta(delta);
+		
         self.scrollDelta(scrollDelta);
         return false;
       });
@@ -205,10 +207,17 @@
       var self = this;
       var eventElement = event.srcElement != null ? event.srcElement : event.target;
       var prevSelectedImg = jQuery('img.stoa-navbar-thumbnail-image-selected');
-      self.bindHoverEffect(prevSelectedImg.get(0));
+      
       prevSelectedImg.removeClass('stoa-navbar-thumbnail-image-selected');
       jQuery(eventElement).addClass('stoa-navbar-thumbnail-image-selected');
-      self.unbindHoverEffect(eventElement);
+      
+	 //I know its a shame that we handle opacityHoverEffect also here(and not in a single place), 
+	 //but trying to avoid it created some performance issues... maybe one day...
+	 if (self.options.thumbnailsOpacityHoverEffect){
+		  self.bindHoverEffect(prevSelectedImg.get(0));
+		  self.unbindHoverEffect(eventElement);
+	  }
+	  
       self.changeMainImage(eventElement);
     },
 
@@ -265,7 +274,8 @@
     },
 
     scrollDelta: function (scrollDeltaInPixels) {
-      if (scrollDeltaInPixels == 0) return;
+      
+	  if (scrollDeltaInPixels == 0) return;
       var thumbnailsContainer = jQuery('#stoa-navbar-thumbnails-container');
       var nCurrentScroll = thumbnailsContainer.scrollTop();
       thumbnailsContainer.scrollTop(nCurrentScroll + scrollDeltaInPixels);
@@ -286,16 +296,17 @@
       }, 200);
     },
 
-    thumbnailsOpacityHoverEffect: function () {
+    initThumbnailsOpacityHoverEffect: function () {
       var self = this;
       if (!self.options.thumbnailsOpacityHoverEffect) return;
-      $('#stoa-navbar-thumbnails-container').find('img').each(function () {
-
+      $('div#stoa-navbar-thumbnails-container ul li ul li img').each(function () {
         self.bindHoverEffect(this);
       });
+	  self.unbindHoverEffect($('img.stoa-navbar-thumbnail-image-selected').get(0));
     },
 
     unbindHoverEffect: function (element) {
+      $(element).css("opacity", "1");
       $(element).unbind('mouseover');
       $(element).unbind('mouseout');
     },
