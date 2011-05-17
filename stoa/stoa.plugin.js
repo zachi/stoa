@@ -125,8 +125,10 @@
       for (var r = 0; r <= nNumberOfRows; r++) {
         var row = $('<li><ul>');
         for (var c = 1; c <= 2; c++) {
-          var imgSrc = self.options.thumbnailsFolderName + '/Thumbnails/' + ((r * 2) + c) + '.jpg';
-          var img = self.createThumbnailImg(imgSrc);
+          var thumbnailSrc = self.options.thumbnailsFolderName + "/Thumbnails/" + ((r * 2) + c) + ".jpg";
+		  var imgSrc = self.options.thumbnailsFolderName + "/" + ((r * 2) + c) + ".jpg";
+		  var imgElement = $('<a href="' +thumbnailSrc +'" ><img src="'+ imgSrc +'" /></a>');
+          var img = self.createThumbnailImg(imgElement);
           var thumbnailContainer = $('<li class="stoa-navbar-thumbnail-container" >');
           thumbnailContainer.append(img)
           row.find('ul').append(thumbnailContainer);
