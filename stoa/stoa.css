@@ -97,7 +97,7 @@ ul, li
 }
 img.stoa-image
 {
-	display:none;
+	visibility:hidden;
 }
 
 
