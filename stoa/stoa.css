@@ -95,6 +95,10 @@ ul, li
   padding: 0;
   zoom: 1;
 }
+img.stoa-image
+{
+	display:none;
+}
 
 
 
